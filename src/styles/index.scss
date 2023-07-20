@@ -1,0 +1,46 @@
+@import './animation';
+@import './variables';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $bg-body;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    display: grid;
+    grid-template-columns: repeat(4, 14vmin);
+    grid-template-rows: repeat(4, 14vmin);
+    gap: 2vmin;
+    padding: 10px;
+    border: 10px solid $border-app;
+    animation: glowAnimation 2s infinite alternate;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vmin;
+    border-radius: 5%;
+    animation: scaleAnimation 0.3s ease-in-out forwards,
+        fadeInAnimation 0.3s ease-in-out forwards;
+    background-size: 200% 100%;
+    background-color: #806565;
+    color: $color-cell;
+    user-select: none;
+
+    &.slide {
+        animation: cellAnimation 10s infinite linear,
+            slideAnimation 0.3s ease-in-out forwards;
+    }
+}
